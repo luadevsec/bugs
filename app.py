@@ -1,9 +1,8 @@
-from fastapi import FastAPI
-import uvicorn
 from rotas import rotas
+from fastapi import FastAPI
 
-prototipo = FastAPI()
-prototipo.include_router(rotas)
+app = FastAPI()
+app.include_router(rotas)
 
 
 
@@ -15,7 +14,7 @@ import subprocess
 def start_server():
     command = [
         "uvicorn",
-        "test:prototipo",
+        "app:app",
         "--host", "localhost",
         "--port", "7777",
         "--reload"
